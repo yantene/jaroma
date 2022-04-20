@@ -1,0 +1,30 @@
+{
+  "name": "jaroma",
+  "version": "0.1.0",
+  "description": "A Japanese romanizer",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yantene/jaroma.git"
+  },
+  "keywords": [],
+  "author": "Shuhei YOSHIDA <contact@yantene.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yantene/jaroma/issues"
+  },
+  "homepage": "https://github.com/yantene/jaroma#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.25",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  }
+}
