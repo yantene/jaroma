@@ -84,7 +84,7 @@ describe(RomajiTrie, () => {
         { kana: "サ", romaji: "sa" },
         { kana: "タ", romaji: "ta" },
         { kana: "ナ", romaji: "na" },
-      ].forEach(({ kana, romaji }) => {
+      ].forEach(({ kana }) => {
         const { romaji: answeredRomaji, matchedKana } =
           romajiMap.getGreedy(kana);
         expect(answeredRomaji).toBeUndefined();

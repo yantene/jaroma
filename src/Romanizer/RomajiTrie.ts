@@ -2,7 +2,7 @@ type Trie = Map<string, string | Trie>;
 
 export class RomajiTrie {
   #trie: Trie = new Map<string, Trie | string>();
-  size: number = 0;
+  size = 0;
 
   constructor(kanaRomajiArray: [string, string][]) {
     kanaRomajiArray.forEach(([kana, romaji]) => {
@@ -61,7 +61,7 @@ export class RomajiTrie {
     );
   }
 
-  chunk(text: string): { romaji?: string; matchedKana: string }[] {
+  chunk(text: string): { romaji: string | undefined; matchedKana: string }[] {
     const chunks = [];
     let cursor = 0;
     while (cursor < text.length) {
