@@ -1,6 +1,6 @@
 import { RomajiTrie } from "./RomajiTrie";
 
-describe(RomajiTrie, () => {
+describe("RomajiTrie", () => {
   describe("size", () => {
     test("空配列を引数として渡したとき、size は 0 であること", () => {
       const romajiMap = new RomajiTrie([]);

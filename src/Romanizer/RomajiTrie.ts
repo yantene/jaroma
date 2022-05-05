@@ -1,3 +1,5 @@
+import type { RomanizeStyle } from "./RomanizeStyle";
+
 type Trie = Map<string, string | Trie>;
 
 export class RomajiTrie {
@@ -8,6 +10,10 @@ export class RomajiTrie {
     kanaRomajiArray.forEach(([kana, romaji]) => {
       this.#setToTrie(kana, romaji, this.#trie);
     });
+  }
+
+  static initializeFromRomanizeStyle(romanizeStyle: RomanizeStyle): RomajiTrie {
+    return new RomajiTrie(romanizeStyle.toTable());
   }
 
   #setToTrie(kana: string, romaji: string, trie: Trie) {
