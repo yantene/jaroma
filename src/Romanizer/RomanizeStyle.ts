@@ -40,8 +40,11 @@ const basicHepburnRules: KanaGyo[] = [
 
 const hatsuonHepburnRules: KanaGyo[] = [
   { shiin: "mb", kanas: ["ンバ", "ンビ", "ンブ", "ンベ", "ンボ"] },
-  { shiin: "mp", kanas: ["ンパ", "ンピ", "ンプ", "ンペ", "ンポ"] },
   { shiin: "mm", kanas: ["ンマ", "ンミ", "ンム", "ンメ", "ンモ"] },
+  { shiin: "mp", kanas: ["ンパ", "ンピ", "ンプ", "ンペ", "ンポ"] },
+  { shiin: "mby", kanas: ["ンビャ", undefined, "ンビュ", "ンビェ", "ンビョ"] },
+  { shiin: "mpy", kanas: ["ンピャ", undefined, "ンピュ", "ンピェ", "ンピョ"] },
+  { shiin: "mmy", kanas: ["ンミャ", undefined, "ンミュ", "ンミェ", "ンミョ"] },
 ];
 
 const hatsuonBoinRules: KanaGyo[] = [
@@ -113,6 +116,29 @@ export class RomanizeStyle {
     ];
 
     return new RomanizeStyle(rules, extraTable);
+  }
+
+  static configPresets: {
+    [key: string]: Parameters<typeof RomanizeStyle.initializeFromConfigs>[0];
+  } = {
+    strictHepburn: {
+      hepburn: "withHatsuonRule",
+      wiWeWoToAGyo: true,
+      uiUeUoWithSuteganaToWaGyo: true,
+      vaGyo: "b",
+      fallbackAGyoSutegana: true,
+      fallbackYaGyoSutegana: true,
+      ignoreChoon: ["choompu", "sutegana"],
+      unifyYotsugana: true,
+    },
+  };
+
+  static initializeFromPreset(
+    preset: keyof typeof RomanizeStyle.configPresets
+  ) {
+    return RomanizeStyle.initializeFromConfigs(
+      RomanizeStyle.configPresets[preset]
+    );
   }
 
   static generateRules(
